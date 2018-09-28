@@ -67,13 +67,13 @@ app.post('/gallery/new', (req, res) => {
         image_url: req.body.image_url,
         description: req.body.description
     }
-
     Content
         .forge(payload)
         .save()
         .then(result => {
-            let { newObj } = results.toJSON();
-            res.render('details', newObj);
+            // let { newObj } = results.toJSON();
+            // res.render('details', newObj);
+            res.redirect('/');
         })
         .catch(err => {
             res.json(err);
