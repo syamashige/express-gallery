@@ -6,6 +6,9 @@ const knex = require('../db/knex');
 // const Articles_DB = require('../db/articles');
 const PORT = process.env.EXPRESS_CONTAINER_PORT || 8080;
 
+const Users = require('./models/Users');
+const Content = require('./models/Content');
+
 app.engine('.hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', '.hbs')
 
