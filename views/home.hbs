@@ -7,12 +7,20 @@
         Welcome to our online portfolio, we are small group of passionate designers and architects, looking to change and create amazing digital images to inspire others to follow in our innovative steps. Free Architect WordPress Theme
     </div>
     </div>
-<H1>HELLO WORLD!!!</H1>
+{{!-- <H1>HELLO WORLD!!!</H1> --}}
 </div>
 {{#each obj}}
 {{!-- <p>
     {{image_url}}
 </p> --}}
 
-<img src="{{image_url}}" height="100" width="100" alt="">
+<a href="/gallery/{{id}}"><img src="{{image_url}}" height="100" width="100" alt=""></a>
+
+<div>
+    {{title}}
+</div>
+<br>
+{{!-- <p>
+    {{description}}
+</p> --}}
 {{/each}}
