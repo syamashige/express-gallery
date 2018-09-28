@@ -1,9 +1,8 @@
 <div>
 <H1>HELLO WORLD!!!</H1>
 </div>
-
-{{!-- header.hbs --}}
-{{!-- {{>header}} --}}
-
-{{!-- list.hbs --}}
-{{!-- {{>list}} --}}
+{{#each obj}}
+<p>
+    {{title}}
+</p>
+{{/each}}

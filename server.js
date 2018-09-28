@@ -2,8 +2,6 @@ const express = require('express');
 const app = express();
 const bp = require('body-parser');
 const exphbs = require('express-handlebars')
-const knex = require('../db/knex');
-// const Articles_DB = require('../db/articles');
 const PORT = process.env.EXPRESS_CONTAINER_PORT || 8080;
 
 const Users = require('./models/Users');
@@ -18,18 +16,21 @@ app.use(bp.urlencoded({ extended: true }));
 
 /*---------Get Pages------------*/
 
-// app.get('/', (req, res) => {
-//     res.render('home');
-// });
-
-app.get('/', (req, res) => {
-    knex.select().from('content_table')
-      .then(result => {
-        res.render('home');
+// Display Contents
+  app.get('/', (req, res) => {
+    Content
+      .fetchAll()
+      .then(contents => {
+        console.log('contents', contents.models[0].attributes.title);
+        let obj = contents.toJSON();
+        console.log(obj);
+        res.render('home', {obj});
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+          res.json(err);
+      });
   });
-  
+
 
 app.get('/details', (req, res) => {
     res.render('detail');
