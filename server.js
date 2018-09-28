@@ -1,9 +1,12 @@
 const express = require('express');
+const app = express();
 const bp = require('body-parser');
-
+const exphbs = require('express-handlebars')
 const PORT = process.env.EXPRESS_CONTAINER_PORT || 8080;
 
-const app = express();
+app.engine('.hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', '.hbs')
+
 
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
