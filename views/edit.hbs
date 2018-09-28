@@ -1,3 +1,25 @@
-<h1>
+{{!-- <h1>
     EDIT PAGE
-</h1>
+</h1>    --}}
+
+{{#each editObj}}
+<form action="/gallery/{{id}}?_method=PUT" method="post">
+<label for="title">
+    <input type="text" name="title" placeholder="{{title}}">
+</label>
+<br>
+<label for="link">
+    <input type="text" name="link" placeholder={{link}}>
+</label>
+<br>
+<label for="image">
+    <input type="text" name="image_url" placeholder="{{image_url}}">
+</label>
+<br>
+<label for="description">
+    <input type="text" name="description" placeholder="{{description}}">
+</label>
+<br>
+<input type="submit" value="EDIT">
+</form>
+{{/each}}

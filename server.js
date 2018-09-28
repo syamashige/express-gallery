@@ -78,6 +78,48 @@ app.post('/gallery/new', (req, res) => {
         });
 });
 
+// Render Gallery Item Edit Form by ID
+app.get('/gallery/:id/edit', (req, res) => {
+    const { id } = req.params;
+    
+    Content
+        .where({ id })
+        .fetchAll()
+        .then(results => {
+            console.log('edit results', results);
+            let editObj = results.toJSON();
+            res.render('edit', { editObj });
+        })
+        .catch(err => {
+            res.json(err);
+        });
+});
+
+// Edit Gallery Item by ID
+app.put('/gallery/:id', (req, res) => {
+    const { id } = req.params;
+    const payload = {
+        title: req.body.title,
+        link: req.body.link,
+        image_url: req.body.image_url,
+        description: req.body.description
+    }
+
+    Content
+        .where({ id })
+        .fetch()
+        .then(results => {
+            return results.save(payload)
+        })
+        .then(results => {
+            res.redirect('/');
+            // res.redirect(`/gallery/${(id)}`)
+        })
+        .catch(err => {
+            res.json(err);
+        });
+});
+
 
 app.listen(PORT, () => {
     console.log(`Listening on PORT: ${PORT}`)
