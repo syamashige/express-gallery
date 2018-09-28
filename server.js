@@ -71,8 +71,6 @@ app.post('/gallery/new', (req, res) => {
         .forge(payload)
         .save()
         .then(result => {
-            // let { newObj } = results.toJSON();
-            // res.render('details', newObj);
             res.redirect('/');
         })
         .catch(err => {
