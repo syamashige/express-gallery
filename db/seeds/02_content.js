@@ -8,37 +8,37 @@ exports.seed = function(knex, Promise) {
         {
           title: 'Mountain Hill Cabin Winter - ',
           link: 'www.fantasticnorway.no',
-          image_url: 'public/assets/mountain_hill_cabin_winter.jpeg',
+          image_url: '/assets/mountain_hill_cabin_winter.jpeg',
           description: 'The project is a winter cabin to be built in a highly restricted area in the mountain landscape of Al in Norway. The cabin is designed as a landscape element that leads wind and snow around and over the building. One of the client’s initial wishes was to be able to actually go skiing, sledge riding and picnicking on to of the cabin. \n\nThe cabin is to be erected during late summer 2012.'
         },
         {
           title: 'Bronnoy Kunstbase - ',
           link: 'www.fantasticnorway.no',
-          image_url: 'public/assets/bronnoy_kunstbase.jpeg',
+          image_url: '/assets/bronnoy_kunstbase.jpeg',
           description: 'The project is a winter cabin to be built in a highly restricted area in the mountain landscape of Al in Norway. The cabin is designed as a landscape element that leads wind and snow around and over the building. One of the client’s initial wishes was to be able to actually go skiing, sledge riding and picnicking on to of the cabin. \n\nThe cabin is to be erected during late summer 2012.'
         },
         {
           title: 'Kneisen Visitors Center - ',
           link: 'www.fantasticnorway.no',
-          image_url: 'public/assets/kneisen_visitors_center.jpeg',
+          image_url: '/assets/kneisen_visitors_center.jpeg',
           description: 'The project is a winter cabin to be built in a highly restricted area in the mountain landscape of Al in Norway. The cabin is designed as a landscape element that leads wind and snow around and over the building. One of the client’s initial wishes was to be able to actually go skiing, sledge riding and picnicking on to of the cabin. \n\nThe cabin is to be erected during late summer 2012.'
         },
         {
           title: 'Stimen - ',
           link: 'www.fantasticnorway.no',
-          image_url: 'public/assets/stimen.jpeg',
+          image_url: '/assets/stimen.jpeg',
           description: 'The project is a winter cabin to be built in a highly restricted area in the mountain landscape of Al in Norway. The cabin is designed as a landscape element that leads wind and snow around and over the building. One of the client’s initial wishes was to be able to actually go skiing, sledge riding and picnicking on to of the cabin. \n\nThe cabin is to be erected during late summer 2012.'
         },
         {
           title: 'Sirene Luxurious - ',
           link: 'www.fantasticnorway.no',
-          image_url: 'public/assets/sirene_luxurious.jpeg',
+          image_url: '/assets/sirene_luxurious.jpeg',
           description: 'The project is a winter cabin to be built in a highly restricted area in the mountain landscape of Al in Norway. The cabin is designed as a landscape element that leads wind and snow around and over the building. One of the client’s initial wishes was to be able to actually go skiing, sledge riding and picnicking on to of the cabin. \n\nThe cabin is to be erected during late summer 2012.'
         },
         {
           title: 'Mountain Hill Cabin - ',
           link: 'www.fantasticnorway.no',
-          image_url: 'public/assets/mountain_hill_cabin.jpeg',
+          image_url: '/assets/mountain_hill_cabin.jpeg',
           description: 'The project is a winter cabin to be built in a highly restricted area in the mountain landscape of Al in Norway. The cabin is designed as a landscape element that leads wind and snow around and over the building. One of the client’s initial wishes was to be able to actually go skiing, sledge riding and picnicking on to of the cabin. \n\nThe cabin is to be erected during late summer 2012.'
         }
       ]);

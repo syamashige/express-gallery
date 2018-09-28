@@ -9,7 +9,7 @@ const Content = require('./models/Content');
 
 app.engine('.hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', '.hbs')
-
+app.use(express.static('public'))
 
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
@@ -21,7 +21,7 @@ app.use(bp.urlencoded({ extended: true }));
     Content
       .fetchAll()
       .then(contents => {
-        console.log('contents', contents.models[0].attributes.title);
+        console.log('contents', contents.models[0].attributes.image_url);
         let obj = contents.toJSON();
         console.log(obj);
         res.render('home', {obj});
