@@ -7,14 +7,17 @@
 </div>
 <br>
 <div>
-    <img src="{{image_url}}" height="400" width="400" alt="titleImage">
+    <img src="{{image_url}}" height="300" width="525" alt="titleImage">
 </div>
 <br>
 <div>
     {{description}}
 </div>
 <br>
-<a href="/gallery/{{id}}/edit">EDIT ITEM</a>
+{{!-- <a href="/gallery/{{id}}/edit">EDIT ITEM</a> --}}
+<form action="/gallery/{{id}}/edit">
+<input type="submit" value="EDIT ITEM">
+</form>
 <br>
 <form action="/gallery/{{id}}?_method=DELETE" method="post">
 <input type="submit" value="DELETE">
