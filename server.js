@@ -120,6 +120,20 @@ app.put('/gallery/:id', (req, res) => {
         });
 });
 
+app.delete('/gallery/:id', (req, res) => {
+    const { id } = req.params;
+  
+    Content
+        .where({ id })
+        .destroy()
+        .then(result => {
+            res.redirect('/')
+        })
+        .catch(err => {
+            res.json(err);
+        });
+  });
+  
 
 
 app.listen(PORT, () => {
