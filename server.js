@@ -27,9 +27,9 @@ app.set('view engine', '.hbs')
     Content
       .fetchAll()
       .then(contents => {
-        console.log('contents', contents.models[0].attributes.image_url);
+        // console.log('contents', contents.models[0].attributes.image_url);
         let obj = contents.toJSON();
-        console.log(obj);
+        // console.log(obj);
         res.render('home', {obj});
       })
       .catch(err => {
@@ -86,7 +86,7 @@ app.get('/gallery/:id/edit', (req, res) => {
         .where({ id })
         .fetchAll()
         .then(results => {
-            console.log('edit results', results);
+            // console.log('edit results', results);
             let editObj = results.toJSON();
             res.render('edit', { editObj });
         })
@@ -98,6 +98,8 @@ app.get('/gallery/:id/edit', (req, res) => {
 // Edit Gallery Item by ID
 app.put('/gallery/:id', (req, res) => {
     const { id } = req.params;
+    console.log('PUT ID', id);
+    
     const payload = {
         title: req.body.title,
         link: req.body.link,
@@ -112,8 +114,9 @@ app.put('/gallery/:id', (req, res) => {
             return results.save(payload)
         })
         .then(results => {
-            res.redirect('/');
-            // res.redirect(`/gallery/${(id)}`)
+            // res.redirect('/');
+            console.log('REDIRECT TO THIS ID', id);
+            res.redirect(`/gallery/${(id)}`)
         })
         .catch(err => {
             res.json(err);
