@@ -52,6 +52,33 @@ app.get('/gallery/:id', (req, res) => {
         });
 });
 
+// New item form
+app.get('/gallery/new', (req, res) => {
+    res.render('form');
+});
+
+// Create new gallery item
+// app.post('/gallery/new', (req, res) => {
+//     const { id } = req.params;
+//     const payload = {
+//         title: req.body.title,
+//         link: req.body.link,
+//         image_url: req.body.image_url,
+//         description: req.body.description
+//     }
+
+//     Content
+//         .forge(payload)
+//         .save()
+//         .then(result => {
+//             let { newObj } = results.toJSON();
+//             res.render('details', newObj);
+//         })
+//         .catch(err => {
+//             res.json(err);
+//         });
+// });
+
 
 app.listen(PORT, () => {
     console.log(`Listening on PORT: ${PORT}`)
