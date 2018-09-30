@@ -1,27 +1,66 @@
-{{!-- <h1>
-    DETAILS PAGE
-</h1> --}}
-{{#each obj}}
-<div>
-    {{title}}
+
+<div id="account">
+    <a href="/">MY ACCOUNT</a> 
 </div>
-<br>
-<div>
-    <img src="{{image_url}}" height="300" width="525" alt="titleImage">
+
+<div id="header">
+     <img src="/assets/logo.jpg" alt="" id="headerImg">
+    <div id="headerText">
+        Welcome to our online portfolio, we are small group of passionate designers and architects, looking to change and create amazing digital images to inspire others to follow in our innovative steps. Free Architect WordPress Theme
+    </div>
 </div>
-<br>
-<div>
-    {{description}}
+
+<div id="navigationBar">
+    <div id="home">
+        <a href="/">HOME</a>
+    </div>
+    <div id="about">
+        <a href="https://www.dessign.net/architekttheme/about/#" target="_blank">ABOUT</a>
+    </div>
+    <div id="portfolio">
+        <a href="https://www.dessign.net/architekttheme/category/exhibition/" target"_blank">PORTFOLIO</a>
+    </div>
+    <div id="blog">
+        <a href="https://www.dessign.net/architekttheme/blog/" target="_blank">BLOG</a>
+    </div>
+    <div id="resume">
+        <a href="https://www.dessign.net/architekttheme/resume/" target="_blank">RESUME</a>
+    </div>
+    <div id="upload">
+        <a href="/gallery/new">UPLOAD</a>
+    </div>
 </div>
+
+{{#each thisobj}}
+
+
+<div id="detailsDiv">
+    <div>
+        {{title}} - {{link}}
+    </div>
 <br>
-{{!-- <a href="/gallery/{{id}}/edit">EDIT ITEM</a> --}}
-<form action="/gallery/{{id}}/edit">
-<input type="submit" value="EDIT ITEM">
-</form>
+    <div>
+        <img src="{{image_url}}" alt="titleImage" id="titleImg">
+    </div>
 <br>
-<form action="/gallery/{{id}}?_method=DELETE" method="post">
-<input type="submit" value="DELETE">
-</form>
+    <div id="description">
+        {{description}} Copyright {{link}}
+    </div>
+</div>
+
+<br>
+
+<div id="changeDiv">
+    <div >
+        <form action="/gallery/{{id}}/edit">
+            <input type="image" src="/assets/edit-icon.png"  id="edit">
+        </form>
+    </div>
+    <div>
+        <form action="/gallery/{{id}}?_method=DELETE" method="post">
+            <input type="image" src="/assets/delete-icon.png" id="delete">
+        </form>
+    </div>
+</div>
 
 {{/each}}
-

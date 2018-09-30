@@ -1,25 +1,56 @@
-{{!-- <h1>
-    EDIT PAGE
-</h1>    --}}
 
-{{#each editObj}}
-<form action="/gallery/{{id}}?_method=PUT" method="post">
-<label for="title">
-    <input type="text" name="title" placeholder="{{title}}">
-</label>
-<br>
-<label for="link">
-    <input type="text" name="link" placeholder={{link}}>
-</label>
-<br>
-<label for="image">
-    <input type="text" name="image_url" placeholder="{{image_url}}">
-</label>
-<br>
-<label for="description">
-    <input type="text" name="description" placeholder="{{description}}">
-</label>
-<br>
-<input type="submit" value="EDIT">
-</form>
-{{/each}}
+<div id="account">
+    <a href="/">MY ACCOUNT</a> 
+</div>
+
+<div id="header">
+     <img src="/assets/logo.jpg" alt="" id="headerImg">
+    <div id="headerText">
+        Welcome to our online portfolio, we are small group of passionate designers and architects, looking to change and create amazing digital images to inspire others to follow in our innovative steps. Free Architect WordPress Theme
+    </div>
+</div>
+
+<div id="navigationBar">
+    <div id="home">
+        <a href="/">HOME</a>
+    </div>
+    <div id="about">
+        <a href="https://www.dessign.net/architekttheme/about/#" target="_blank">ABOUT</a>
+    </div>
+    <div id="portfolio">
+        <a href="https://www.dessign.net/architekttheme/category/exhibition/" target"_blank">PORTFOLIO</a>
+    </div>
+    <div id="blog">
+        <a href="https://www.dessign.net/architekttheme/blog/" target="_blank">BLOG</a>
+    </div>
+    <div id="resume">
+        <a href="https://www.dessign.net/architekttheme/resume/" target="_blank">RESUME</a>
+    </div>
+    <div id="upload">
+        <a href="/gallery/new">UPLOAD</a>
+    </div>
+</div>
+
+<div id="editForm">
+    {{#each editObj}}
+        <form action="/gallery/{{id}}?_method=PUT" method="post">
+            <label for="title">
+                <input type="text" name="title" placeholder="{{title}}">
+            </label>
+        <br>
+            <label for="link">
+                <input type="text" name="link" placeholder={{link}}>
+            </label>
+        <br>
+            <label for="image">
+                <input type="text" name="image_url" placeholder="{{image_url}}">
+            </label>
+        <br>
+            <label for="description">
+                <input type="text" name="description" placeholder="{{description}}">
+            </label>
+        <br>
+            <input type="submit" value="EDIT">
+        </form>
+    {{/each}}
+</div>

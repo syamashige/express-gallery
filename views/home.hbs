@@ -1,26 +1,93 @@
-<div class="wrapper">
-    <div class="header">
-    <div class="logo">
-        <img src="/assets/logo.jpg" height="69" width="403" alt="">
-    </div>
-    <div class="header_text_cont">
+
+<div id="login">
+    <a href="/">LOGIN</a> | 
+    <a href="/">SIGN UP</a>
+</div>
+<div id="header">
+     <img src="/assets/logo.jpg" alt="" id="headerImg">
+    <div id="headerText">
         Welcome to our online portfolio, we are small group of passionate designers and architects, looking to change and create amazing digital images to inspire others to follow in our innovative steps. Free Architect WordPress Theme
     </div>
+</div>
+<div id="navigationBar">
+    <div id="home">
+        <a href="/">HOME</a>
     </div>
-{{!-- <H1>HELLO WORLD!!!</H1> --}}
+    <div id="about">
+        <a href="https://www.dessign.net/architekttheme/about/#" target="_blank">ABOUT</a>
+    </div>
+    <div id="portfolio">
+        <a href="https://www.dessign.net/architekttheme/category/exhibition/" target"_blank">PORTFOLIO</a>
+    </div>
+    <div id="blog">
+        <a href="https://www.dessign.net/architekttheme/blog/" target="_blank">BLOG</a>
+    </div>
+    <div id="resume">
+        <a href="https://www.dessign.net/architekttheme/resume/" target="_blank">RESUME</a>
+    </div>
+    <div id="upload">
+        <a href="/gallery/new">UPLOAD</a>
+    </div>
 </div>
-{{#each obj}}
-{{!-- <p>
-    {{image_url}}
-</p> --}}
-
-<a href="/gallery/{{id}}"><img src="{{image_url}}" height="100" width="100" alt=""></a>
-
-<div>
-    {{title}}
+<div id="topImgDiv">
+    {{!-- <h5 id="topImgHeader">Sirene - www.fantasticnorway.no</h5> --}}
+    <img src="/assets/sirene.jpg" alt="topImage"  id="topImg">
+    {{!-- <p id="topDescrip">
+        Sirene is a luxurious restaurant placed at Aker Brygge, where Oslo meets the fjord. We wanted to bring in aspects of nature into this very urban area. The building is designed with layers of flexible and transparent facades, floating on the water surface. When the tide changes, so do the facades of the building. The main components are series of narrow columns and large transparent canvases, which gives associations to the many sailing boats docked nearby. Aquatic engineer Ole Wroldsen was responsible for the technical challenges of the construction and was part of the design team. The project was designed in 2009 
+    </p>
+--}}
 </div>
+
+{{!-- <div class="headerSlides">
+    <img src="{{image_url}}" class="slideshow" alt="slideshowImages">
+    button.
+</div> --}}
+
+
+<div id="gallery">
+
+    {{#each obj}}
+    <div class="galleryImageDiv">
+        <a href="/gallery/{{id}}">
+        <img src="{{image_url}}" height="100" width="100" alt="" class="galleryImg">
+        </a>
+        <p class="galleryText">
+        {{title}} - {{link}}
+        </p>
+    </div>
+
+  {{/each}}
+</div>
+  
+
+
+
 <br>
 {{!-- <p>
     {{description}}
 </p> --}}
-{{/each}}
+
+
+{{!-- <script>
+    let slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+    showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+    let i;
+    let x = document.getElementsByClassName('slideshow');
+    if (n > x.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = x.length;
+    }
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    x[slideIndex - 1].style.display = "block";
+}
+</script> --}}

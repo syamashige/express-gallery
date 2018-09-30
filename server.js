@@ -20,6 +20,8 @@ app.engine('.hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', '.hbs')
 
 
+
+
 /*---------Get Pages------------*/
 
 // Display Contents
@@ -49,14 +51,13 @@ app.get('/gallery/:id', (req, res) => {
         .where({ id })
         .fetchAll()
         .then(results => {
-            let obj = results.toJSON();
-            res.render('detail', { obj });
+            let thisobj = results.toJSON();
+            res.render('detail', { thisobj });
         })
         .catch(err => {
             res.json(err);
         });
 });
-
 
 // Create new gallery item
 app.post('/gallery/new', (req, res) => {
