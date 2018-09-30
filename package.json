@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "migrate": "POSTGRES_HOST_NAME=localhost knex migrate:latest",
-    "seed": "POSTGRES_HOST_NAME=localhost knex seed:run"
-
+    "seed": "POSTGRES_HOST_NAME=localhost knex seed:run",
+    "dev": "nodemon server.js & gulp"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,12 @@
     "knex": "^0.15.2",
     "method-override": "^3.0.0",
     "nodemon": "^1.18.4",
+    "passport": "^0.4.0",
     "pg": "^7.4.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.7",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
   }
 }
