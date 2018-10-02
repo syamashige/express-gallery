@@ -31,8 +31,28 @@
     </div>
 </div>
 
+<div id="editContainer">
+
+{{#each editObj}}
+
+<div id="detailsDiv">
+    <div>
+        {{title}} - {{link}}
+    </div>
+<br>
+    <div>
+        <img src="{{image_url}}" alt="titleImage" id="titleImg">
+    </div>
+<br>
+    <div id="description">
+        {{description}} Copyright {{link}}
+    </div>
+</div>
+
+<br>
+
 <div id="editForm">
-    {{#each editObj}}
+
         <form action="/gallery/{{id}}?_method=PUT" method="post">
             <label for="title">
                 <input type="text" name="title" placeholder="{{title}}">
@@ -52,5 +72,9 @@
         <br>
             <input type="submit" value="EDIT">
         </form>
+    </div>
+    
     {{/each}}
+
 </div>
+    

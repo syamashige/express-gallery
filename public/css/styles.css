@@ -17,9 +17,9 @@ body {
 }
 
 #headerImg {
-    height: 15%;
-    width: 100%;
-    padding: 2% 15% 2% 0% ;
+    height: 3%;
+    width: 40%;
+    padding: 2% 35% 2% 0% ;
    
 }
 
@@ -50,7 +50,6 @@ body {
     padding: 1% 1% 1% 0;
 }
 .galleryImg {
-    /* float: right; */
     flex: 1 1 50px;
     height: 215px;
     width: 313px;
@@ -80,7 +79,7 @@ a {
 
 #home, #about, #upload, #portfolio, #blog, #resume, #login, #account {
     font-size: 12px;
-    padding: 2%;
+    padding: 1%;
 }
 
 #changeDiv{
@@ -99,19 +98,18 @@ a {
 }
 
 #detailsDiv {
-    /* text-align: center; */
+    width: 55%;
     font-size: 13px;
     color: #c7c7c7;
 }
 
 #titleImg {
-    width: 55%;
+    width: 100%;
     height: 25%;
-
 }
 
 #description {
-    width: 55%;
+    width: 100%;
 }
 
 #form, #editForm {
@@ -119,14 +117,25 @@ a {
     text-align: center;
 }
 
+#editForm {
+    width: 45%;
+}
+
 input[type=text] {
     margin: 2%;
-    padding: 1%;
-    width: 50%;
+    padding: 1.5% 1% 1.5% 1%;
+    width: 75%;
 }
 
 input[type=submit] {
-    padding: 1%;
+    padding: 1% 1.5% 1% 1.5%;
     color: #999;
     border: 1px solid #999;
+}
+
+#editContainer {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+
 }
