@@ -41,7 +41,6 @@
     <div>
         {{title}} - {{link}}
     </div>
-<br>
     <div>
         <a href="/gallery/{{id}}">
             <img src="{{image_url}}" alt="titleImage" id="titleImg">
@@ -58,7 +57,7 @@
 <div id="editForm">
 
         <form action="/gallery/{{id}}?_method=PUT" method="post">
-            <label for="title">
+            <label fors="title">
                 <input type="text" name="title" placeholder="{{title}}">
             </label>
         <br>
