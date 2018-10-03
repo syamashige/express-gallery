@@ -86,7 +86,7 @@ a {
 #home, #about, #upload, #portfolio, #blog, #resume, #loginContainer, #account {
     font-size: 12px;
     padding: 0.5% 1.5% 0% 1.5%;
-    /* margin-bottom: 0.5%; */
+    margin-bottom: 1%;
     margin-right: 0.5%;
     margin-top: 0.5%;
 }
