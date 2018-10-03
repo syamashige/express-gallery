@@ -1,10 +1,35 @@
+{{!-- <script>
+    let slideIndex = 1;
+showDivs(slideIndex);
 
-<div id="login">
-    <a href="/">LOGIN</a> | 
-    <a href="/">SIGN UP</a>
+function plusDivs(n) {
+    showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+    let i;
+    let x = document.getElementsByClassName('slideshow');
+    if (n > x.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = x.length;
+    }
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    x[slideIndex - 1].style.display = "block";
+}
+</script> --}}
+
+<div id="loginContainer">
+    <a href="/" id="login">LOGIN</a> | 
+    <a href="/" id="signup">SIGN UP</a>
 </div>
 <div id="header">
-     <img src="/assets/logo.jpg" alt="" id="headerImg">
+     <a href="https://www.dessign.net/architekttheme/" id="headerImg" target="_blank">
+     <img src="/assets/logo.jpg" alt="">
+     </a>
     <div id="headerText">
         Welcome to our online portfolio, we are small group of passionate designers and architects, looking to change and create amazing digital images to inspire others to follow in our innovative steps. Free Architect WordPress Theme
     </div>
@@ -29,24 +54,21 @@
         <a href="/gallery/new">UPLOAD</a>
     </div>
 </div>
-<div id="topImgDiv">
-    {{!-- <h5 id="topImgHeader">Sirene - www.fantasticnorway.no</h5> --}}
-    <img src="/assets/sirene.jpg" alt="topImage"  id="topImg">
-    {{!-- <p id="topDescrip">
-        Sirene is a luxurious restaurant placed at Aker Brygge, where Oslo meets the fjord. We wanted to bring in aspects of nature into this very urban area. The building is designed with layers of flexible and transparent facades, floating on the water surface. When the tide changes, so do the facades of the building. The main components are series of narrow columns and large transparent canvases, which gives associations to the many sailing boats docked nearby. Aquatic engineer Ole Wroldsen was responsible for the technical challenges of the construction and was part of the design team. The project was designed in 2009 
-    </p>
---}}
+
+
+{{!-- {{#each obj}}
+
+<div class="headerSlides">
+    <img src="{{image_url}}" class="slideshow" alt="slideshowImages" width="600" height="200">
+    
 </div>
 
-{{!-- <div class="headerSlides">
-    <img src="{{image_url}}" class="slideshow" alt="slideshowImages">
-    button.
-</div> --}}
+{{/each}} --}}
 
 
 <div id="gallery">
+{{#each obj}}
 
-    {{#each obj}}
     <div class="galleryImageDiv">
         <a href="/gallery/{{id}}">
         <img src="{{image_url}}" height="100" width="100" alt="" class="galleryImg">
@@ -68,26 +90,3 @@
 </p> --}}
 
 
-{{!-- <script>
-    let slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-    showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-    let i;
-    let x = document.getElementsByClassName('slideshow');
-    if (n > x.length) {
-        slideIndex = 1
-    }
-    if (n < 1) {
-        slideIndex = x.length;
-    }
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    x[slideIndex - 1].style.display = "block";
-}
-</script> --}}
