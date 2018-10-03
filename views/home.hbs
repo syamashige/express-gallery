@@ -1,26 +1,3 @@
-{{!-- <script>
-    let slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-    showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-    let i;
-    let x = document.getElementsByClassName('slideshow');
-    if (n > x.length) {
-        slideIndex = 1
-    }
-    if (n < 1) {
-        slideIndex = x.length;
-    }
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    x[slideIndex - 1].style.display = "block";
-}
-</script> --}}
 
 <div id="loginContainer">
     <a href="/" id="login">LOGIN</a> | 
@@ -53,18 +30,14 @@ function showDivs(n) {
     <div id="upload">
         <a href="/gallery/new">UPLOAD</a>
     </div>
+    <div>
+        <input type="text" placeholder="" id="searchBar">
+    </div>
 </div>
 
-
-{{!-- {{#each obj}}
-
-<div class="headerSlides">
-    <img src="{{image_url}}" class="slideshow" alt="slideshowImages" width="600" height="200">
-    
+<div id="topImgDiv">
+    <img src="/assets/sirene.jpg" alt="topImage" id="topImg">
 </div>
-
-{{/each}} --}}
-
 
 <div id="gallery">
 {{#each obj}}
@@ -85,8 +58,5 @@ function showDivs(n) {
 
 
 <br>
-{{!-- <p>
-    {{description}}
-</p> --}}
 
 
