@@ -40,26 +40,12 @@ app.use('/auth', AuthRoutes)
 /*---------Get Pages------------*/
 
 // Display Contents
-//   app.get('/', (req, res) => {
-//     Content
-//       .fetchAll()
-//       .then(contents => {
-//         // console.log('contents', contents.models[0].attributes.image_url);
-//         let obj = contents.toJSON();
-//         // console.log(obj);
-//         res.render('home', {obj});
-//       })
-//       .catch(err => {
-//           res.json(err);
-//       });
-//   });
-
-app.get('/', (req, res) => {
-    Users
+  app.get('/', (req, res) => {
+    Content
       .fetchAll()
-      .then(users => {
+      .then(contents => {
         // console.log('contents', contents.models[0].attributes.image_url);
-        let obj = users.toJSON();
+        let allObj = contents.toJSON();
         // console.log(obj);
         res.render('home', {obj});
       })
@@ -67,6 +53,20 @@ app.get('/', (req, res) => {
           res.json(err);
       });
   });
+
+// app.get('/', (req, res) => {
+//     Users
+//       .fetchAll()
+//       .then(users => {
+//         // console.log('contents', contents.models[0].attributes.image_url);
+//         let obj = users.toJSON();
+//         // console.log(obj);
+//         res.render('home', {obj});
+//       })
+//       .catch(err => {
+//           res.json(err);
+//       });
+//   });
 
   // New item form
 app.get('/gallery/new', (req, res) => {
