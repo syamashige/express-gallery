@@ -68,7 +68,6 @@ app.get('/', (req, res) => {
       });
   });
 
-
   // New item form
 app.get('/gallery/new', (req, res) => {
     res.render('form');
