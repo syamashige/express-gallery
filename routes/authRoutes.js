@@ -98,21 +98,16 @@ router.post('/logout', (req, res) => {
   res.send('loggedout')
 })
 
-// router.get('/protected',isAuthenticated, (req, res) => {
-//   res.render('myAwesomeDashboard', {user: req.user} )
-//   console.log(req.user);
-// })
-
-router.get('/protected', (req, res) => {
-  res.send('You Are Authenticated!')
+router.get('/protected',isAuthenticated, (req, res) => {
+  res.render('myAwesomeDashboard', {user: req.user} )
 })
 
-// function isAuthenticated(req, res, next) {
-//   if (req.isAuthenticated()) {
-//     next()
-//   } else {
-//     res.redirect('/')
-//   }
-// }
+function isAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    next()
+  } else {
+    res.redirect('/')
+  }
+}
 
 module.exports = router
