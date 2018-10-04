@@ -24,7 +24,7 @@ passport.serializeUser( (user, done) => {
 passport.deserializeUser( (user, done) => {
   console.log('deserializing user', user) 
   Users
-    .where({ id: users_table.username})
+    .where({ id: users_table.id})
     .fetch()
     .then( user => {
       done(null, users_table.attributes)
@@ -34,17 +34,17 @@ passport.deserializeUser( (user, done) => {
     })
 })
 
-passport.use(new LocalStrategy({usernameField: 'username'}, (username, password, done) => {
+passport.use(new LocalStrategy({usernameField: 'username'}, (fullname, username, password, done) => {
   Users
-    .where({ username })
+    .where({ fullname, username })
     .fetch()
-    .then( username => {
-      console.log('user in localstrategy db', username)
-      myHackyGlobalStorage = username
+    .then( user => {
+      console.log('user in localstrategy db', user)
+      myHackyGlobalStorage = user
       bcrypt.compare(password, users_table.attributes.passwords)
         .then( result => {
           if (result) {
-            done(null, username)
+            done(null, user)
           } else {
             done(null, false)
           }
@@ -82,33 +82,27 @@ router.post('/register', (req, res) => {
     })
 })
 
-// router.post('/login',passport.authenticate('local', {failureRedirect: '/'}), (req, res) => {
-//   // router.post('/login', (req, res) => {
-// res.send('You Are Authenticated!')
-// })
-
-router.post('/login', (req, res) => {
-  const { username, password } = req.body;
-  Users
-    .where({ username })
-    .fetch()
-    .then( user => {
-      if (password === users_table.attributes.passwords) {
-        res.send('You are authenticated')
-      } else {
-        res.send('Wrong login credentials or no user exist')
-      }
-    })
-    .catch( err => {
-      console.log('err', err)
-      res.send(err)
-    })
-})
-
-router.get('/login',passport.authenticate('local', {failureRedirect: '/'}), (req, res) => {
-  // router.post('/login', (req, res) => {
+router.post('/login',passport.authenticate('local', {failureRedirect: '/'}), (req, res) => {
 res.send('You Are Authenticated!')
 })
+
+// router.post('/login', (req, res) => {
+//   const { fullname, username, password } = req.body;
+//   Users
+//     .where({ fullname, username, password })
+//     .fetch()
+//     .then( user => {
+//       if (password === users_table.attributes.passwords) {
+//         res.send('You are authenticated aka logged in!')
+//       } else {
+//         res.send('Wrong login credentials or no user exist')
+//       }
+//     })
+//     .catch( err => {
+//       console.log('err', err)
+//       res.send(err)
+//     })
+// })
 
 router.post('/logout', (req, res) => {
   req.logout()
