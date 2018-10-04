@@ -8,9 +8,24 @@ const PORT = process.env.EXPRESS_CONTAINER_PORT || 8080;
 
 const Users = require('./models/Users');
 const Content = require('./models/Content');
+const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
+const passport = require('passport');
+const AuthRoutes = require('./routes/authRoutes.js')
 
+
+app.use(session({
+    store: new RedisStore({url: 'redis://redis-session-store:6379', logErrors: true}),
+    secret: 'lollerkates', // SECRET IS USED IN THE ALGORITHMS TO CREATE KEYS
+    resave: false, // IF THERE IS NO CHANGE, SAVE IT BUT SET TO FALSE TO PREVENT CREATING SESSIONS
+    saveUninitialized: true // 
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/auth', AuthRoutes)
 app.use(express.static('public'))
-
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 
@@ -23,12 +38,26 @@ app.set('view engine', '.hbs')
 /*---------Get Pages------------*/
 
 // Display Contents
-  app.get('/', (req, res) => {
-    Content
+//   app.get('/', (req, res) => {
+//     Content
+//       .fetchAll()
+//       .then(contents => {
+//         // console.log('contents', contents.models[0].attributes.image_url);
+//         let obj = contents.toJSON();
+//         // console.log(obj);
+//         res.render('home', {obj});
+//       })
+//       .catch(err => {
+//           res.json(err);
+//       });
+//   });
+
+app.get('/', (req, res) => {
+    Users
       .fetchAll()
-      .then(contents => {
+      .then(users => {
         // console.log('contents', contents.models[0].attributes.image_url);
-        let obj = contents.toJSON();
+        let obj = users.toJSON();
         // console.log(obj);
         res.render('home', {obj});
       })
@@ -36,6 +65,7 @@ app.set('view engine', '.hbs')
           res.json(err);
       });
   });
+
 
   // New item form
 app.get('/gallery/new', (req, res) => {
