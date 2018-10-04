@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router(); 
+const router = express.Router();
 const Users = require('../models/Users');
 const Content = require('../models/Content');
 const passport = require('passport');
@@ -12,8 +12,8 @@ const bcrypt = require('bcrypt')
 passport.serializeUser( (user, done) => {
   console.log('serializing user', user)
   done(null, {
-    id: users_table.attributes.id,
-    user: users_table.attributes.username
+    username: user.username,
+    zomg: 'randomData'
   })
 })
 
@@ -22,41 +22,39 @@ passport.serializeUser( (user, done) => {
 // // from the session, for example userId, to retrieve
 // // the user record from db, and put it into req.user
 passport.deserializeUser( (user, done) => {
-  console.log('deserializing user', user) 
+  console.log('01 - deserializing User', user)
   Users
-    .where({ id: users_table.username})
+    .where({username: user.username})
     .fetch()
     .then( user => {
-      done(null, users_table.attributes)
-    })
-    .catch( err => {
-      done(err)
-    })
-})
-
-passport.use(new LocalStrategy({usernameField: 'username'}, (username, password, done) => {
-  Users
-    .where({ username })
-    .fetch()
-    .then( username => {
-      console.log('user in localstrategy db', username)
-      myHackyGlobalStorage = username
-      bcrypt.compare(password, users_table.attributes.passwords)
-        .then( result => {
-          if (result) {
-            done(null, username)
-          } else {
-            done(null, false)
-          }
-         })
-        .catch( err => {
-          done(err)
-        })
+      user = user.toJSON();
+      done(null, user)
     })
     .catch( err => {
       console.log('err', err)
     })
-    
+})
+
+passport.use(new LocalStrategy((username, password, done) => {
+  console.log('02 - local is being called', username)
+  Users
+    .where({username})
+    .fetch()
+    .then( user => {
+      console.log('user in local strategy', user)
+      user = user.toJSON();
+      bcrypt.compare(password, user.passwords)
+        .then( res => {
+          if (res) {
+            done(null, user)
+          } else {
+            done(null, false)
+          }
+        })
+    })
+    .catch( err => {
+      done(null, false)
+    })
 }))
 
 router.post('/register', (req, res) => {
@@ -87,28 +85,13 @@ router.post('/register', (req, res) => {
 // res.send('You Are Authenticated!')
 // })
 
-router.post('/login', (req, res) => {
-  const { username, password } = req.body;
-  Users
-    .where({ username })
-    .fetch()
-    .then( user => {
-      if (password === users_table.attributes.passwords) {
-        res.send('You are authenticated')
-      } else {
-        res.send('Wrong login credentials or no user exist')
-      }
-    })
-    .catch( err => {
-      console.log('err', err)
-      res.send(err)
-    })
+
+
+router.post('/login', passport.authenticate('local', {failureRedirect: '/'}), (req, res) => {
+  res.send('You are now logged in!')
 })
 
-router.get('/login',passport.authenticate('local', {failureRedirect: '/'}), (req, res) => {
-  // router.post('/login', (req, res) => {
-res.send('You Are Authenticated!')
-})
+
 
 router.post('/logout', (req, res) => {
   req.logout()
