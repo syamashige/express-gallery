@@ -60,11 +60,13 @@ passport.use(new LocalStrategy({usernameField: 'username'}, (username, password,
 }))
 
 router.post('/register', (req, res) => {
-  const {username, password} = req.body;
+  const {fullname, username, password} = req.body;
   bcrypt.hash(password, 10)
     .then( hashedPassword => {
+      console.log('after hash received', hashedPassword)
+      console.log('username', username)
       return Users
-              .forge({username, passwords: hashedPassword}) // Need to reference db columns here
+              .forge({fullname, username, passwords: hashedPassword}) // Need to reference db columns here
               .save()
     })
     .then( result => {
