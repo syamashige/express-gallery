@@ -23,8 +23,6 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use('/auth', AuthRoutes)
 app.use(express.static('public'))
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
@@ -33,6 +31,8 @@ app.use(methodOverride('_method'));
 
 app.engine('.hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', '.hbs')
+
+app.use('/auth', AuthRoutes)
 
 
 /*---------Get Pages------------*/

@@ -64,7 +64,7 @@ router.post('/register', (req, res) => {
   bcrypt.hash(password, 10)
     .then( hashedPassword => {
       return Users
-              .forge({username, password: hashedPassword})
+              .forge({username, passwords: hashedPassword}) // Need to reference db columns here
               .save()
     })
     .then( result => {
