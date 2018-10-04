@@ -54,6 +54,14 @@ app.use('/auth', AuthRoutes)
       });
   });
 
+app.get('/auth/register', (req, res) => {
+    res.render('signup');
+})
+  
+app.get('/auth/login', (req, res) => {
+    res.render('login');
+})
+
   // New item form
 app.get('/gallery/new', (req, res) => {
     res.render('form');
