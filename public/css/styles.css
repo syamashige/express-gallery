@@ -48,9 +48,9 @@ body {
     }
 }
 
-#scrollImage {
+/* #scrollImage {
     display: none;
-}
+} */
 
 #topImgDiv {
     width: 100%;
@@ -91,12 +91,12 @@ a {
     color:#999;
 }
 
-#loginContainer, #account {
+#loginContainer, #account, #backToHome {
     text-align: right;
     margin-bottom: 1%;
 }
 
-#home, #about, #upload, #portfolio, #blog, #resume, #loginContainer, #account {
+#home, #about, #upload, #portfolio, #blog, #resume, #loginContainer, #account, #backToHome {
     font-size: 12px;
     padding: 0.5% 1.5% 0% 1.5%;
     margin-bottom: 1%;
@@ -109,7 +109,7 @@ a {
     color: white;
 }
 
-#login:hover, #signup:hover, #accountLink:hover {
+#login:hover, #signup:hover, #accountLink:hover, #backHome:hover {
     color: black;
 }
 
@@ -204,4 +204,9 @@ input[type=submit] {
     flex-flow: row wrap;
     width: 100%;
 
+}
+
+
+#signupForm, #loginForm {
+    text-align: center;
 }
