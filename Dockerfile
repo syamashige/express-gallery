@@ -1,5 +1,5 @@
 # Built from Node latest Alpine
-FROM node:8.11-alpine
+FROM node:10.0
 
 # EXPOSE 8080 5432
 
