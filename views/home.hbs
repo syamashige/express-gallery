@@ -38,24 +38,10 @@
     </div>
 </div>
 
-{{!-- <div id="topImgDiv">
+<div id="topImgDiv">
     <img src="/assets/sirene.jpg" alt="topImage" id="topImg">
-</div> --}}
-
-<script>
-    function slideshow() {
-        let slideImage = document.getElementById('scrollImage');
-    }
-</script>
-
-<div id="slideshowContainer">
-    {{#each obj}}
-        <div id="topImgDiv">
-            <img src="{{image_url}}" alt="{{id}}" id="scrollImage">
-        </div>
-    {{/each}}
-    <button id="scrollBtn" onclick="slideshow">Next</button>
 </div>
+
 
 <div id="gallery">
 {{#each obj}}
