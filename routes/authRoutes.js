@@ -64,7 +64,11 @@ router.post('/register', (req, res) => {
       console.log('after hash received', hashedPassword)
       console.log('username', username)
       return Users
-              .forge({fullname, username, passwords: hashedPassword}) // Need to reference db columns here
+        .forge({
+          fullname: req.body.fullname,
+          username: req.body.username,
+          passwords: hashedPassword
+        }) // Need to reference db columns here
               .save()
     })
     .then( result => {
