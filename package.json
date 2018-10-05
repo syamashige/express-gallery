@@ -1,15 +1,14 @@
 {
   "name": "express-gallery",
   "version": "1.0.0",
-  "description": "Express Gallery ===============",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "migrate": "POSTGRES_HOST_NAME=localhost knex migrate:latest",
-    "seed": "POSTGRES_HOST_NAME=localhost knex seed:run",
-    "flushdb": "POSTGRES_HOSTNAME=localhost POSTGRES_CONTAINER_PORT=5432 npx knex migrate:rollback ; POSTGRES_HOSTNAME=localhost POSTGRES_CONTAINER_PORT=5432 npx knex migrate:latest ; POSTGRES_HOSTNAME=localhost POSTGRES_CONTAINER_PORT=5432 npx knex seed:run",
-    "dev": "nodemon server.js & gulp"
+    "migrate": "POSTGRES_HOST_NAME=localhost POSTGRES_CONTAINER_PORT=5432 npx knex migrate:latest",
+    "seed": "POSTGRES_HOST_NAME=localhost POSTGRES_CONTAINER_PORT=5432 npx knex seed:run",
+    "flushdb": "POSTGRES_HOST_NAME=localhost POSTGRES_CONTAINER_PORT=5432 npx knex migrate:rollback ; POSTGRES_HOST_NAME=localhost POSTGRES_CONTAINER_PORT=5432 npx knex migrate:latest ; POSTGRES_HOST_NAME=localhost POSTGRES_CONTAINER_PORT=5432 npx knex seed:run",
   },
   "repository": {
     "type": "git",

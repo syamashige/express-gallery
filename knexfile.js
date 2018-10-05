@@ -1,6 +1,6 @@
 // Update with your config settings.
 require('dotenv').config({path: './.env'})
-// console.log(process.env)
+console.log('process.env',process.env)
 
 module.exports = {
 
@@ -24,9 +24,9 @@ module.exports = {
   staging: {
     client: 'postgresql',
     connection: {
-      database: 'express_gallery',
-      user:     'development',
-      password: 'development'
+      database: 'my_db',
+      user:     'username',
+      password: 'password'
     },
     pool: {
       min: 2,
@@ -40,9 +40,9 @@ module.exports = {
   production: {
     client: 'postgresql',
     connection: {
-      database: 'express_gallery',
-      user:     'development',
-      password: 'development'
+      database: 'my_db',
+      user:     'username',
+      password: 'password'
     },
     pool: {
       min: 2,
@@ -54,3 +54,4 @@ module.exports = {
   }
 
 };
+

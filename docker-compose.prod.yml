@@ -4,7 +4,6 @@ services:
     image: syamashige/express-gallery:${IMAGE_VERSION}
     depends_on:
       - db
-      - redis-session-store
     command: ["./node_modules/.bin/nodemon", "server.js"]
     container_name: this-app
     volumes:
