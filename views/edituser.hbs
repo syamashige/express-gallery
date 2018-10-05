@@ -1,3 +1,30 @@
-<h1>
-    EDIT USER PAGE
-</h1>
+<div id="backToHome">
+    <a href="/" id="backHome">HOME</a>
+</div>
+
+<div id="header">
+     <a href="https://www.dessign.net/architekttheme/" id="headerImg" target="_blank">
+     <img src="/assets/logo.jpg" alt="">
+     </a>
+</div>
+<h1>↵ EDIT USER ACCOUNT / <a href="/" id="backHome">HOME</a></h1>
+        <p>Name: {{user.fullname}} <br> Username: {{user.username}}</p>
+
+<div id="signupForm">
+    <form action=`/auth/register/{{id}}` method="post">
+        <label for="fullname">
+            <input type="text" name="fullname" value={{user.fullname}}>
+        </label>
+        <br>
+        <label for="username">
+            <input type="text" name="username" value={{user.username}}>
+        </label>
+        <br>
+        <label for="password">
+            <input type="password" name="password" placeholder="Edit Password">
+        </label>
+        <br>
+        <input type="submit" value="REGISTER">
+    </form>
+
+</div>

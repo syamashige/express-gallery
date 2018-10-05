@@ -91,12 +91,12 @@ a {
     color:#999;
 }
 
-#loginContainer, #account, #backToHome {
+#loginContainer, #account, #backToHome, #logout {
     text-align: right;
     margin-bottom: 1%;
 }
 
-#home, #about, #upload, #portfolio, #blog, #resume, #loginContainer, #account, #backToHome {
+#home, #about, #upload, #portfolio, #blog, #resume, #loginContainer, #account, #backToHome, #logout {
     font-size: 12px;
     padding: 0.5% 1.5% 0% 1.5%;
     margin-bottom: 1%;
@@ -109,8 +109,12 @@ a {
     color: white;
 }
 
-#login:hover, #signup:hover, #accountLink:hover, #backHome:hover {
+#login:hover, #signup:hover, #accountLink:hover, #backHome:hover, #logout:hover{
     color: black;
+}
+
+#logout {
+    border: none;
 }
 
 /* #searchBar {
@@ -187,7 +191,7 @@ a {
     width: 45%;
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
     margin: 2%;
     padding: 1.5% 1% 1.5% 1%;
     width: 75%;

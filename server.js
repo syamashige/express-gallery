@@ -54,6 +54,21 @@ app.use('/auth', AuthRoutes)
       });
   });
 
+  app.get('/auth/protected', (req, res) => {
+    Users
+      .fetchAll()
+      .then(contents => {
+        // console.log('contents', contents.models[0].attributes.image_url);
+        let accounts = contents.toJSON();
+        console.log('View Accounts!!!', accounts);
+        res.render('edituser', {accounts});
+      })
+      .catch(err => {
+          res.json(err);
+      });
+  });
+  
+
 app.get('/auth/register', (req, res) => {
     res.render('signup');
 })

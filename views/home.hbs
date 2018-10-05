@@ -1,6 +1,12 @@
 <div id="loginContainer">
+    Welcome {{user}}
     <a href="/auth/login" id="login">LOGIN</a> | 
     <a href="/auth/register" id="signup">SIGN UP</a>
+    {{!-- <a href="/auth/logout">LOGOUT</a> --}}
+    <form action="/auth/logout" method="post">
+        <input type="submit" id="logout" value="LOGOUT">
+    </form>
+
 </div>
 <div id="header">
      <a href="https://www.dessign.net/architekttheme/" id="headerImg" target="_blank">

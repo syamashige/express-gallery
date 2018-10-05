@@ -13,6 +13,7 @@ passport.serializeUser( (user, done) => {
   console.log('serializing user', user)
   done(null, {
     username: user.username,
+    fullname: user.fullname,
     zomg: 'randomData'
   })
 })
@@ -57,6 +58,7 @@ passport.use(new LocalStrategy((username, password, done) => {
     })
 }))
 
+
 router.post('/register', (req, res) => {
   const {fullname, username, password} = req.body;
   bcrypt.hash(password, 10)
@@ -84,27 +86,37 @@ router.post('/register', (req, res) => {
     })
 })
 
-// router.post('/login',passport.authenticate('local', {failureRedirect: '/'}), (req, res) => {
-//   // router.post('/login', (req, res) => {
-// res.send('You Are Authenticated!')
-// })
-
-
-
-router.post('/login', passport.authenticate('local', {failureRedirect: '/'}), (req, res) => {
-  res.send('You are now logged in!')
-})
-
-
+router.post('/login', passport.authenticate('local', {
+  successRedirect: './protected',
+  failureRedirect: './login',
+  failureFlash: true })
+)
 
 router.post('/logout', (req, res) => {
   req.logout()
-  res.send('loggedout')
+  console.log('loggedout');
+  res.redirect('/')
+
+  // res.send('loggedout')
 })
 
 router.get('/protected',isAuthenticated, (req, res) => {
-  res.render('myAwesomeDashboard', {user: req.user} )
+  console.log('STARS!!!!!!!!**88*****', req.session)
+  // username: user.username,
+  // fullname: user.fullname,
+  
+  // console.log('THIS IS ALL THE USERS', req.user)
+  // console.log('THIS IS ONE USER', req.session.passport.user.fullname)
+  // console.log('THIS IS ALL THE USERS', req.session.passport.user)
+  
+  res.render('../views/edituser', {
+    user: req.session.passport.user
+    // fullname: req.session.passport.user.fullname
+
+  })
 })
+
+
 
 function isAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
